@@ -1,5 +1,7 @@
 from room import Room
 
+from player import Player
+
 # Declare all the rooms
 
 room = {
@@ -39,6 +41,13 @@ room['treasure'].s_to = room['narrow']
 
 # Make a new player object that is currently in the 'outside' room.
 
+currentRoom = room['outside']
+player = Player('Skeletor', currentRoom)
+
+print(currentRoom.description)
+directionChoice = input(f"{player.name}, please choose a direction: ")
+
+
 # Write a loop that:
 #
 # * Prints the current room name
@@ -49,3 +58,13 @@ room['treasure'].s_to = room['narrow']
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
+
+
+while directionChoice != "q":
+    if directionChoice == "n":
+        currentRoom = currentRoom.n_to
+        print(f"{player.name} you have entered the {currentRoom.name}!")
+        print(f"{currentRoom.description}!")
+        directionChoice = input(f"{player.name}, please choose a direction: ")
+    else:
+        print("invalid direction")
