@@ -62,9 +62,48 @@ directionChoice = input(f"{player.name}, please choose a direction: ")
 
 while directionChoice != "q":
     if directionChoice == "n":
-        currentRoom = currentRoom.n_to
-        print(f"{player.name} you have entered the {currentRoom.name}!")
-        print(f"{currentRoom.description}!")
-        directionChoice = input(f"{player.name}, please choose a direction: ")
+        if hasattr(currentRoom, "n_to"):
+            currentRoom = currentRoom.n_to
+            print(f"{player.name} you have entered the {currentRoom.name}!")
+            print(f"{currentRoom.description}!")
+            directionChoice = input(
+                f"{player.name}, please choose a direction: ")
+        else:
+            print("Cannot go this way")
+            directionChoice = input(
+                f"{player.name}, please choose a direction: ")
+    elif directionChoice == "s":
+        if hasattr(currentRoom, "s_to"):
+            currentRoom = currentRoom.s_to
+            print(f"{player.name} you have entered the {currentRoom.name}!")
+            print(f"{currentRoom.description}!")
+            directionChoice = input(
+                f"{player.name}, please choose a direction: ")
+        else:
+            print("Cannot go this way")
+            directionChoice = input(
+                f"{player.name}, please choose a direction: ")
+    elif directionChoice == "w":
+        if hasattr(currentRoom, "w_to"):
+            currentRoom = currentRoom.w_to
+            print(f"{player.name} you have entered the {currentRoom.name}!")
+            print(f"{currentRoom.description}!")
+            directionChoice = input(
+                f"{player.name}, please choose a direction: ")
+            else:
+            print("Cannot go this way")
+            directionChoice = input(
+                f"{player.name}, please choose a direction: ")
+    elif directionChoice == "e":
+        if hasattr(currentRoom, "e_to"):
+            urrentRoom = currentRoom.e_to
+            print(f"{player.name} you have entered the {currentRoom.name}!")
+            print(f"{currentRoom.description}!")
+            directionChoice = input(
+                f"{player.name}, please choose a direction: ")
+        else:
+            print("Cannot go this way")
+            directionChoice = input(
+                f"{player.name}, please choose a direction: ")
     else:
         print("invalid direction")
